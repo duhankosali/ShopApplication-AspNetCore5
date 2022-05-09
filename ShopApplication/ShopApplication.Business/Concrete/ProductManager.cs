@@ -52,6 +52,12 @@ namespace ShopApplication.Business.Concrete
             return _productDal.GetAll();
         }
 
+        public Product GetProductDetails(int id)
+        {
+            //throw new NotImplementedException();
+            return _productDal.GetProductDetails(id);
+        }
+
         public void Update(Product entity)
         {
             //throw new NotImplementedException();

@@ -12,9 +12,8 @@ namespace ShopApplication.UI.Controllers
 {
     public class HomeController : Controller
     {
+        // Dependency Injection
         private readonly ILogger<HomeController> _logger;
-
-        // Business katmanı Dependency Injection
         private IProductService _productService; 
 
         public HomeController(ILogger<HomeController> logger, IProductService productService)
@@ -27,7 +26,7 @@ namespace ShopApplication.UI.Controllers
         {
             return View(new ProductListModel()
             {
-                Products = _productService.GetAll(),
+                Products = _productService.GetPopularProducts(),
                 //Categories = _categoryService.GetAll(),
             });
         }

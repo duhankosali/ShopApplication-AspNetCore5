@@ -12,5 +12,6 @@ namespace ShopApplication.DataAccess.Abstract
     {
         // ProductDal'a ek olarak eklemek istediğimiz method olursa buraya ekleyeceğiz.
         IEnumerable<Product> GetPopularProducts();
+        Product GetProductDetails(int id);
     }
 }

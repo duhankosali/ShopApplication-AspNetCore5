@@ -45,6 +45,11 @@ namespace ShopApplication.DataAccess.Concrete.Memory
             throw new NotImplementedException();
         }
 
+        public Product GetProductDetails(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product GeyById(int id)
         {
             throw new NotImplementedException();

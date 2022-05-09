@@ -1,18 +1,31 @@
-﻿@using ShopApplication.Entities
+﻿
 
-@model IEnumerable<Product>
-
-@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@model ShopApplication.UI.Models.ProductListModel
 
 
-    @foreach(var item in Model)
-    {
-        <p>@item.Name</p>
-    }
-</div>
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item">Meyve</li>
+                <li class="list-group-item">Sebze</li>
+                <li class="list-group-item">Süt ve Süt Ürünleri</li>
+            </ul>
+        </div>
+  
+
+        <div class="col-md-9">  
+
+            <div class="row">
+
+             @foreach(var product in Model.Products)
+             {
+                 <partial name="_product" for="@product"/> <!-- Partial (Method gibi bir kullanımı var) -->
+             }
+
+            </div>
+
+        
+
+        </div>
+    </div>
+    

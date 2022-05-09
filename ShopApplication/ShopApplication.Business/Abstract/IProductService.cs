@@ -10,6 +10,7 @@ namespace ShopApplication.Business.Abstract
     public interface IProductService
     {
         Product GetById(int id);
+        Product GetProductDetails(int id);  
         List<Product> GetAll();
         List<Product> GetPopularProducts(); 
         void Create(Product entity);

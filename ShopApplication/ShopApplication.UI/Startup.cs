@@ -9,6 +9,7 @@ using ShopApplication.Business.Concrete;
 using ShopApplication.DataAccess.Abstract;
 using ShopApplication.DataAccess.Concrete.EntityFramework;
 using ShopApplication.DataAccess.Concrete.Memory;
+using ShopApplication.UI.Middleware;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,7 +57,9 @@ namespace ShopApplication.UI
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(); // wwroot u dýþarý açmak için bir middleware (kendisi otomatik yazýlý geliyor)
+
+            //app.CustomStaticFiles(); // Middleware klasörünün içinde kendi oluþturduðumu bir Middleware (30)
 
             app.UseRouting();
 

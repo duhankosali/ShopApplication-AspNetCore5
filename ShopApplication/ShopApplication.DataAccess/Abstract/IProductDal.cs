@@ -11,7 +11,8 @@ namespace ShopApplication.DataAccess.Abstract
     public interface IProductDal : IRepository<Product> // Dal --> Data Access Layer, IProductRepository
     {
         // ProductDal'a ek olarak eklemek istediğimiz method olursa buraya ekleyeceğiz.
-        IEnumerable<Product> GetPopularProducts();
+        List<Product> GetProductsByCategory(string category, int page, int pageSize);
         Product GetProductDetails(int id);
+        int GetCountByCategory(string category);
     }
 }

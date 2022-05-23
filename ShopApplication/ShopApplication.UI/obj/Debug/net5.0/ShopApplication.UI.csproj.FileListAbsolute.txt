@@ -153,3 +153,7 @@ D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\V
 D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Shared\_product.cshtml.g.cs
 D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Shop\List.cshtml.g.cs
 D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Shop\Details.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Shared\Components\CategoryList\Default.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\CreateProduct.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\Edit.cshtml.g.cs

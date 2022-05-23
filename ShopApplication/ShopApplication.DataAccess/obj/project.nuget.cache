@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HEDeMHXOeen5FXaM2TeyPWOVCVMhFfWfbPeC61HKcs594odLeGJxrX4NKXwO6KtzBplfK5ZT61sSmzIjXSN7VQ==",
+  "dgSpecHash": "9z+J1DeR5i+X8f7ACy6YBFEbvbbdSKyOMQqgb8iRpqMFt0s5gXZilMbQ6dt3cOsJOYMnghWY15C9u7/11UKy6A==",
   "success": true,
   "projectFilePath": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj",
   "expectedPackageFiles": [

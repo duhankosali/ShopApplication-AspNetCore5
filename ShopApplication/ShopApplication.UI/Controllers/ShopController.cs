@@ -16,12 +16,20 @@ namespace ShopApplication.UI.Controllers
             _productService = productService;
         }
 
-
-        public IActionResult List()
+        // /products/meyveler?page=1
+        public IActionResult List(string category, int page = 1)
         {
+            const int pageSize = 3;
             return View(new ProductListModel()
             {
-                Products = _productService.GetAll()
+                Products = _productService.GetProductByCategory(category, page, pageSize),
+                PagingInfo = new PagingInfo()
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _productService.GetCountByCategory(category),
+                    CurrentCategory = category
+                }
             });
         }
 

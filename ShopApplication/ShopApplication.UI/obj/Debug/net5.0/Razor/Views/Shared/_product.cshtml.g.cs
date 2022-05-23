@@ -13,13 +13,6 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "D:\net-core-projeler\ShopApplication\ShopApplication.UI\Views\_ViewImports.cshtml"
-using ShopApplication.UI;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "D:\net-core-projeler\ShopApplication\ShopApplication.UI\Views\_ViewImports.cshtml"
 using ShopApplication.UI.Models;
 
@@ -34,7 +27,7 @@ using ShopApplication.Entities;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e4001663c565b223c8a56b77755a4f5d68025bd6", @"/Views/Shared/_product.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c4977574e3c9df2d8ab0bc47ed9a575d0a82389d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"288b67db092f1535f5eeeaeaa4a38a61baff21c0", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__product : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Product>
     #nullable disable
@@ -68,7 +61,7 @@ using ShopApplication.Entities;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<div class=\"col-md-4\">\r\n    <div class=\"card mb-3\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e4001663c565b223c8a56b77755a4f5d68025bd64554", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e4001663c565b223c8a56b77755a4f5d68025bd64365", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -116,7 +109,7 @@ AddHtmlAttributeValue("", 150, Model.Name, 150, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n            </small>\r\n        </div>\r\n        <div class=\"card-footer text-center\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4001663c565b223c8a56b77755a4f5d68025bd67358", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4001663c565b223c8a56b77755a4f5d68025bd67169", async() => {
                 WriteLiteral("Details");
             }
             );

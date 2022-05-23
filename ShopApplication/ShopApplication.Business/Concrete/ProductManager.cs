@@ -45,11 +45,15 @@ namespace ShopApplication.Business.Concrete
             return _productDal.GeyById(id);
         }
 
-        public List<Product> GetPopularProducts()
+        public int GetCountByCategory(string category)
+        {
+            return _productDal.GetCountByCategory(category);
+        }
+
+        public List<Product> GetProductByCategory(string category, int page, int pageSize)
         {
             //throw new NotImplementedException();
-
-            return _productDal.GetAll();
+            return _productDal.GetProductsByCategory(category, page, pageSize);
         }
 
         public Product GetProductDetails(int id)

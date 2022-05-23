@@ -26,7 +26,7 @@ namespace ShopApplication.UI.Controllers
         {
             return View(new ProductListModel()
             {
-                Products = _productService.GetPopularProducts(),
+                Products = _productService.GetAll(),
                 //Categories = _categoryService.GetAll(),
             });
         }

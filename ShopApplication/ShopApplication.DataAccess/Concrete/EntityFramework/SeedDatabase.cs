@@ -10,6 +10,9 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
 {
     public static class SeedDatabase
     {
+        // Bu sayfada bir değişiklik yapıldığında Migration güncellemek için : 
+        // Powershell Aç --> dotnet ef database drop --> Y --> dotnet ef database update 
+
         public static void Seed()
         {
             var context = new ShopContext(); // bir context nesnesi ürettik.
@@ -24,7 +27,7 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
                 if(context.Products.Count() == 0)
                 {
                     context.Products.AddRange(Products);
-                    context.AddRange(ProductCategory);
+                    context.AddRange(ProductCategory); // Listeyi ekleyelim.
                 }
 
                 context.SaveChanges();
@@ -52,7 +55,8 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
             new ProductCategory() { Product = Products[0], Category = Categories[0]},
             new ProductCategory() { Product = Products[1], Category = Categories[0]},
             new ProductCategory() { Product = Products[2], Category = Categories[0]},
-            new ProductCategory() { Product = Products[3], Category = Categories[1]}
+            new ProductCategory() { Product = Products[3], Category = Categories[0]},
+            new ProductCategory() { Product = Products[4], Category = Categories[1]}
         };
 
     }

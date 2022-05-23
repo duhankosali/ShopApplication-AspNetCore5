@@ -8,7 +8,7 @@ using ShopApplication.Business.Abstract;
 using ShopApplication.Business.Concrete;
 using ShopApplication.DataAccess.Abstract;
 using ShopApplication.DataAccess.Concrete.EntityFramework;
-using ShopApplication.DataAccess.Concrete.Memory;
+
 using ShopApplication.UI.Middleware;
 using System;
 using System.Collections.Generic;
@@ -33,8 +33,14 @@ namespace ShopApplication.UI
 
             // Dependency Injection ile ProductDal istendiðinde kullanýcýya hangisi gönderilsin? --> Bu kýsýmý kullanarak istediðimiz an deðiþiklik yapabiliriz.
             //services.AddScoped<IProductDal, MemoryProductDal>(); // MemoryProductDal'daki veriler çaðýrýlýr.
-            services.AddScoped<IProductDal, EfCoreProductDal>(); // SqlServer'deki veriler çaðýrýlýr.
-            services.AddScoped<IProductService, ProductManager>();
+
+            services.AddScoped<IProductDal, EfCoreProductDal>(); // DataAccess Layer baðlantýsý
+            services.AddScoped<ICategoryDal, EfCoreCategoryDal>();
+
+            services.AddScoped<IProductService, ProductManager>(); // Business Layer baðlantýsý
+            services.AddScoped<ICategoryService, CategoryManager>();
+
+
 
             services.AddMvc();
             // IProduct, EfCoreProductDal
@@ -68,9 +74,35 @@ namespace ShopApplication.UI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                name: "adminProducts",
+                pattern: "admin/products",
+                defaults: new { controller = "Admin", action = "Index" }
+              );
+
+                endpoints.MapControllerRoute(
+                    name: "adminProducts",
+                    pattern: "admin/products/{id?}",
+                    defaults: new { controller = "Admin", action = "Edit" }
+                );
+
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                        );
+
+                endpoints.MapControllerRoute( // Category'ye göre filtreleme iþlemi --> /products/meyveler, /products/sebzeler vb.
+                    name: "products",
+                    pattern: "products/{category?}",
+                    defaults: new {controller = "Shop", action = "List"}
+                    );
+             
             });
+
+            
+
+
+
+
         }
     }
 }

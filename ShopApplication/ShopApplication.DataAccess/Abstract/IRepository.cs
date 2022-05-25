@@ -11,7 +11,7 @@ namespace ShopApplication.DataAccess.Abstract
     public interface IRepository<T>
     {
         // Genel bütün Dal'larda kullanılacak methodlar burada tanımlanır.
-        T GeyById(int id);
+        T GetById(int id);
         T GetOne(Expression<Func<T, bool>> filter);
         List<T> GetAll(Expression<Func<T, bool>> filter = null); // IEnumerable araştır.
 

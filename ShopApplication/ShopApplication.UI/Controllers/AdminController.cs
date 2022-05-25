@@ -2,19 +2,25 @@
 using ShopApplication.Business.Abstract;
 using ShopApplication.Entities;
 using ShopApplication.UI.Models;
+using System.Linq;
 
 namespace ShopApplication.UI.Controllers
 {
     public class AdminController : Controller
     {
-        private IProductService _productService;
+        // Dependency Injection
 
-        public AdminController(IProductService productService)
+        private IProductService _productService;
+        private ICategoryService _categoryService;
+        public AdminController(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
+            _categoryService = categoryService;
         }
 
-        public IActionResult Index()
+        // Product Management
+
+        public IActionResult ProductList()
         {
             return View(new ProductListModel()
             {
@@ -45,13 +51,13 @@ namespace ShopApplication.UI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public IActionResult EditProduct(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            var entity = _productService.GetById((int)id);
+            var entity = _productService.GetByIdWithCategories((int)id);    
 
             if (entity == null)
             {
@@ -64,14 +70,17 @@ namespace ShopApplication.UI.Controllers
                 Name = entity.Name,
                 Price = entity.Price,
                 Description = entity.Description,
-                ImageUrl = entity.ImageUrl
+                ImageUrl = entity.ImageUrl,
+                SelectedCategories = entity.ProductCategories.Select(c => c.Category).ToList() 
             };
+
+            ViewBag.Categories = _categoryService.GetAll(); // GetAll  ile bütün Category bilgilerini alıyoruz.
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Edit(ProductModel model)
+        public IActionResult EditProduct(ProductModel model, int[] categoryIds)
         {
             var entity = _productService.GetById(model.Id);
 
@@ -85,13 +94,13 @@ namespace ShopApplication.UI.Controllers
             entity.ImageUrl = model.ImageUrl;
             entity.Price = model.Price;
 
-            _productService.Update(entity);
+            _productService.Update(entity, categoryIds);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("ProductList");
         }
 
         [HttpPost]
-        public IActionResult Delete(int productId)
+        public IActionResult DeleteProduct(int productId)
         {
             var entity = _productService.GetById(productId);
 
@@ -100,7 +109,85 @@ namespace ShopApplication.UI.Controllers
                 _productService.Delete(entity);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("ProductList");
+        }
+
+        // Category Management
+ 
+        public IActionResult CategoryList()
+        {
+            return View(new CategoryListModel()
+            {
+                Categories = _categoryService.GetAll()
+            });
+        }
+
+       [HttpGet]
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
+
+        [HttpPost] // Post model alır.
+        public IActionResult CreateCategory(CategoryModel model)
+        {
+            var entity = new Category()
+            {
+                Name = model.Name,
+            };
+
+            _categoryService.Create(entity);
+
+            return RedirectToAction("CategoryList");
+        }
+
+        [HttpGet]
+        public IActionResult EditCategory(int id)
+        {
+            var entity = _categoryService.GetByIdWithProducts(id);
+
+            return View(new CategoryModel()
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Products = entity.ProductCategories.Select(p => p.Product).ToList()
+            }); 
+        }
+
+        [HttpPost]
+        public IActionResult EditCategory(CategoryModel model)
+        {
+            var entity = _categoryService.GetById(model.Id);
+            if (entity==null)
+            {
+                return NotFound();
+            }
+            entity.Name = model.Name;   
+            _categoryService.Update(entity);
+
+            return RedirectToAction("CategoryList");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteCategory(int categoryId)
+        {
+            var entity = _categoryService.GetById(categoryId);
+
+            if (entity != null)
+            {
+                _categoryService.Delete(entity);
+            }
+
+            return RedirectToAction("CategoryList");
+        }
+
+
+        [HttpPost]
+        public IActionResult DeleteFromCategory(int categoryId, int productId) // Veritabanından değil, Yalnızca Category'den silme işlemi yapar.
+        {
+            _categoryService.DeleteFromCategory(categoryId, productId);
+
+            return Redirect("/admin/editcategory/"+categoryId);
         }
 
     }

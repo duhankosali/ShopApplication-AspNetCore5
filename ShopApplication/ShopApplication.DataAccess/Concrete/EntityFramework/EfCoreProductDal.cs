@@ -63,5 +63,44 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
                 return products.Count();
             }
         }
+
+        public Product GetByIdWithCategories(int id)
+        {
+            //throw new NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                return context.Products
+                    .Where(i => i.Id == id)
+                    .Include(i=>i.ProductCategories)
+                    .ThenInclude(i=>i.Category)
+                    .FirstOrDefault();
+            }
+        }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            //throw new NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                var product = context.Products
+                    .Include(i => i.ProductCategories) // güncelleyeceğimiz alan
+                    .FirstOrDefault(i => i.Id == entity.Id);
+                if (product != null)
+                {
+                    product.Name = entity.Name;
+                    product.Description = entity.Description;
+                    product.ImageUrl = entity.ImageUrl;
+                    product.Price = entity.Price;
+
+                    product.ProductCategories = categoryIds.Select(catid => new ProductCategory()
+                    {
+                        CategoryId = catid,
+                        ProductId = entity.Id
+                    }).ToList();
+
+                    context.SaveChanges(); // veritabanında değişiklikleri yaptır.
+                }
+            }
+        }
     }
 }

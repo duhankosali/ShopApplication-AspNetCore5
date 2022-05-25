@@ -42,7 +42,13 @@ namespace ShopApplication.Business.Concrete
         {
             //throw new NotImplementedException();
 
-            return _productDal.GeyById(id);
+            return _productDal.GetById(id);
+        }
+
+        public Product GetByIdWithCategories(int id)
+        {
+            //throw new NotImplementedException();
+            return _productDal.GetByIdWithCategories(id);
         }
 
         public int GetCountByCategory(string category)
@@ -66,6 +72,12 @@ namespace ShopApplication.Business.Concrete
         {
             //throw new NotImplementedException();
             _productDal.Update(entity);
+        }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            //throw new NotImplementedException();
+            _productDal.Update(entity, categoryIds);
         }
     }
 }

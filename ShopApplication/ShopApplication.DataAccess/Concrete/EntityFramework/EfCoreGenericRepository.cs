@@ -57,7 +57,7 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
             }
         }
 
-        public T GeyById(int id)
+        public T GetById(int id)
         {
             //throw new NotImplementedException();
 

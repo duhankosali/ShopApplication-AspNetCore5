@@ -155,5 +155,8 @@ D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\V
 D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Shop\Details.cshtml.g.cs
 D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Shared\Components\CategoryList\Default.cshtml.g.cs
 D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\CreateProduct.cshtml.g.cs
-D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
-D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\Edit.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\CategoryList.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\EditProduct.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\ProductList.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\CreateCategory.cshtml.g.cs
+D:\net-core-projeler\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Admin\EditCategory.cshtml.g.cs

@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using ShopApplication.Business.Abstract;
 using ShopApplication.Entities;
 using ShopApplication.UI.Models;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShopApplication.UI.Controllers
 {
@@ -31,23 +34,34 @@ namespace ShopApplication.UI.Controllers
         [HttpGet]
         public IActionResult CreateProduct()
         {
-            return View();
+            return View(new ProductModel());
         }
 
         [HttpPost] // Post model alır.
         public IActionResult CreateProduct(ProductModel model) 
         {
-            var entity = new Product()
+            if(ModelState.IsValid==true) // validation (kısıtlamalar) uygunsa
             {
-                Name = model.Name,
-                Price = model.Price,
-                Description = model.Description,
-                ImageUrl = model.ImageUrl
-            };
+                var entity = new Product()
+                {
+                    Name = model.Name,
+                    Price = model.Price,
+                    Description = model.Description,
+                    ImageUrl = model.ImageUrl
+                };
 
-            _productService.Create(entity);
+                if (_productService.Create(entity))
+                {
+                    return Redirect("ProductList"); // işlemler tamamlanırsa --> /admin/productlist 
+                }
+                ViewBag.ErrorMessage = _productService.ErrorMessage;
+                return View(model);
+   
+            }
 
-            return Redirect("Index");
+            return View(model); // Eğer if bloğu sağlanmadıysa kullanıcıyı aynı sayfaya geri göndeririz.
+
+          
         }
 
         [HttpGet]
@@ -80,23 +94,42 @@ namespace ShopApplication.UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditProduct(ProductModel model, int[] categoryIds)
+        public async Task<IActionResult> EditProduct(ProductModel model, int[] categoryIds, IFormFile file)
         {
-            var entity = _productService.GetById(model.Id);
-
-            if (entity == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+
+                var entity = _productService.GetById(model.Id);
+
+                if (entity == null)
+                {
+                    return NotFound();
+                }
+
+                entity.Name = model.Name;
+                entity.Description = model.Description;
+                //entity.ImageUrl = model.ImageUrl; --> ImageUrl yi file olarak yüklüyoruz.
+                entity.Price = model.Price;
+
+                if (file!=null) // kullanıcı bir resim göndermiş ise.
+                {
+                    entity.ImageUrl = file.FileName;
+
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img",file.FileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream); // asenktron saklama
+                    }
+                }
+                 
+                _productService.Update(entity, categoryIds);
+
+                return RedirectToAction("ProductList");
             }
 
-            entity.Name = model.Name;
-            entity.Description = model.Description;
-            entity.ImageUrl = model.ImageUrl;
-            entity.Price = model.Price;
+            ViewBag.Categories = _categoryService.GetAll(); // GetAll  ile bütün Category bilgilerini alıyoruz.
 
-            _productService.Update(entity, categoryIds);
-
-            return RedirectToAction("ProductList");
+            return View(model);
         }
 
         [HttpPost]

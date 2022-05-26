@@ -21,9 +21,15 @@ namespace ShopApplication.Business.Concrete
             _productDal = productDal;
         }
 
-        public void Create(Product entity)
+        public bool Create(Product entity)
         {
-            _productDal.Create(entity);
+            if (Validate(entity))
+            {
+                _productDal.Create(entity);
+                return true;
+            }
+
+            return false;
         }
 
         public void Delete(Product entity)
@@ -79,5 +85,22 @@ namespace ShopApplication.Business.Concrete
             //throw new NotImplementedException();
             _productDal.Update(entity, categoryIds);
         }
+
+        public bool Validate(Product entity)
+        {
+            //throw new NotImplementedException();
+            var isValid = true;
+
+            if (string.IsNullOrEmpty(entity.Name))
+            {
+                ErrorMessage += "Ürün ismi girmelisiniz.";
+                isValid = false;
+            }
+
+            
+
+            return isValid;
+        }
+        public string ErrorMessage { get; set; }
     }
 }

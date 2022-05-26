@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eJwb1lOEc//RCmAFeirgSUaecgKxXFvyN0i5ccmMw7DWh7LbPbO7kKygpllJ3TtTzZ3/fR0MX5oxOQWHjzwVyA==",
+  "dgSpecHash": "H1rkOvFMVVwLrZ33AxwnLHdLhJfECYOVV1Zv0lqgGWM1J1QFIV2hk35phPcGffwVt/SUfp3LeEqMGruh0SODIg==",
   "success": true,
   "projectFilePath": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.UI\\ShopApplication.UI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\duhan\\.nuget\\packages\\ckeditor\\3.6.4\\ckeditor.3.6.4.nupkg.sha512",
     "C:\\Users\\duhan\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\duhan\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\duhan\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

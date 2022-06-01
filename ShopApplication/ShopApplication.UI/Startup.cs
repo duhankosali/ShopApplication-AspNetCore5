@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,7 +11,7 @@ using ShopApplication.Business.Abstract;
 using ShopApplication.Business.Concrete;
 using ShopApplication.DataAccess.Abstract;
 using ShopApplication.DataAccess.Concrete.EntityFramework;
-
+using ShopApplication.UI.Identity;
 using ShopApplication.UI.Middleware;
 using System;
 using System.Collections.Generic;
@@ -30,6 +33,54 @@ namespace ShopApplication.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+
+
+
+            // Adding Identity için konfigürasyon iþlemleri
+            services.AddDbContext<ApplicationIdentityDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>() // User ve Role bilgileri hangi sýnýftan alýnacak.
+                .AddEntityFrameworkStores<ApplicationIdentityDbContext>() // identity verileri nereden çekilecek.
+                .AddDefaultTokenProviders(); // Parola veya email reset iþlemlerinde kullanýcýya benzersiz bir token gönderilir.
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Ek olarak istediðimiz özellikleri buradan belirtiyoruz.
+
+                // password
+                options.Password.RequireDigit = true; // Kullanýcý parolasýnda sayý kullanma þartý.
+                options.Password.RequireUppercase = true; // parolada büyük harf kullanma þartý. 
+                options.Password.RequiredLength = 6; // parola minimum 6 karakterden oluþmalý.
+
+                options.Lockout.MaxFailedAccessAttempts = 5; // Kullanýcýnýn parolayý yanlýþ girmesi için 5 hakký var.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Parolayý yanlýþ giren kullanýcý 5 dakika boyunca tekrar eriþim saðlayamaz. 
+                options.Lockout.AllowedForNewUsers = true;
+
+                // options.User.AllowedUserNameCharacters = "";
+                options.User.RequireUniqueEmail = true; // ayný mail adresiyle öyeliði engeller.
+
+                options.SignIn.RequireConfirmedEmail = false; // Kullanýcýnýn mail adresinden onay iþlemi yapmasý gerekir.
+                options.SignIn.RequireConfirmedPhoneNumber = false; // Telefon onayý gerekmiyor. (Çünkü false)
+            });
+
+            services.ConfigureApplicationCookie(options => // Cookie yapýlandýrmasý
+            {
+                options.LoginPath = "/account/login";
+                options.LogoutPath = "/account/logout";
+                options.AccessDeniedPath = "/account/accessdenied";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // 1 Saat boyunca Cookie tarayýcýmýzda açýk kalacak. (Siteyi kapatýp açsak bile kullanýcý giriþine ihtiyaç olmayacak)
+                options.SlidingExpiration = true;
+                options.Cookie = new CookieBuilder
+                {
+                    HttpOnly = true,
+                    Name = ".ShopApplication.Security.Cookie",
+                };
+            });
+
+
+
 
             // Dependency Injection ile ProductDal istendiðinde kullanýcýya hangisi gönderilsin? --> Bu kýsýmý kullanarak istediðimiz an deðiþiklik yapabiliriz.
             //services.AddScoped<IProductDal, MemoryProductDal>(); // MemoryProductDal'daki veriler çaðýrýlýr.
@@ -69,6 +120,7 @@ namespace ShopApplication.UI
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

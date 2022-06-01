@@ -5742,11 +5742,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj",
+      "projectUniqueName": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj",
       "projectName": "ShopApplication.Business",
-      "projectPath": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj",
+      "projectPath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj",
       "packagesPath": "C:\\Users\\duhan\\.nuget\\packages\\",
-      "outputPath": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.Business\\obj\\",
+      "outputPath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\duhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5763,11 +5763,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\net-core-projeler\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj": {
-              "projectPath": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj"
+            "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj": {
+              "projectPath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj"
             },
-            "D:\\net-core-projeler\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {
-              "projectPath": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj"
+            "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {
+              "projectPath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj"
             }
           }
         }

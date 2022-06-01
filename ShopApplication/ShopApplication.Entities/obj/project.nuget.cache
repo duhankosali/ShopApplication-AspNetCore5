@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q7/QD9WAyXJDtQil1S0x+F+iUwmCjxxU6WgbigHXYzGMAtt7NcoAgTdTlDIszJ174ntW0RYWgM8CV+FqBCATaA==",
+  "dgSpecHash": "ak1uSj8UIPqOyzDkMGVdeMXfgFC5PPknRgXdns3QnZLHl7XblNgBbYNTK5EAXRKqKfqJC4UmZIubS66OGbYrlw==",
   "success": true,
-  "projectFilePath": "D:\\net-core-projeler\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj",
+  "projectFilePath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

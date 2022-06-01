@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShopApplication.Business.Abstract;
 using ShopApplication.Entities;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ShopApplication.UI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         // Dependency Injection

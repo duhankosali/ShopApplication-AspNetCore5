@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "26Jz52o3Girk8KCMkyAtL89wFGIbUq9YE/tc9O/YSyFQJFsGGOEsxwBpI8MlrRsobNsll7Xt3rGRwR2Bx32Sqg==",
+  "dgSpecHash": "tIb6Qm5yVNdd1L+q97JU0EPqKVheyy4vFEvi4FBImCsY571ma0mxJSNn5nABzGVAfoW7chW0pLHpxmzDU3INPA==",
   "success": true,
-  "projectFilePath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duhan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\duhan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -5782,11 +5782,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj",
       "projectName": "ShopApplication.DataAccess",
-      "projectPath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj",
+      "projectPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.DataAccess\\ShopApplication.DataAccess.csproj",
       "packagesPath": "C:\\Users\\duhan\\.nuget\\packages\\",
-      "outputPath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\duhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5803,8 +5803,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {
-              "projectPath": "D:\\net-core-projeler\\ShopApplication-v2\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj"
+            "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {
+              "projectPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj"
             }
           }
         }

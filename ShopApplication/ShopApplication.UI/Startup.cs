@@ -1,3 +1,4 @@
+using Castle.Core.Smtp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,7 @@ using ShopApplication.DataAccess.Abstract;
 using ShopApplication.DataAccess.Concrete.EntityFramework;
 using ShopApplication.UI.Identity;
 using ShopApplication.UI.Middleware;
+using ShopApplication.UI.Services.EmailServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,9 +61,9 @@ namespace ShopApplication.UI
                 options.Lockout.AllowedForNewUsers = true;
 
                 // options.User.AllowedUserNameCharacters = "";
-                options.User.RequireUniqueEmail = true; // ayný mail adresiyle öyeliði engeller.
+                options.User.RequireUniqueEmail = true; // ayný mail adresiyle üyeliði engeller.
 
-                options.SignIn.RequireConfirmedEmail = false; // Kullanýcýnýn mail adresinden onay iþlemi yapmasý gerekir.
+                options.SignIn.RequireConfirmedEmail = true; // Kullanýcýnýn mail adresinden onay iþlemi yapmasý gerekir.
                 options.SignIn.RequireConfirmedPhoneNumber = false; // Telefon onayý gerekmiyor. (Çünkü false)
             });
 
@@ -76,6 +78,7 @@ namespace ShopApplication.UI
                 {
                     HttpOnly = true,
                     Name = ".ShopApplication.Security.Cookie",
+                    SameSite = SameSiteMode.Strict // cross street attack engelleme
                 };
             });
 
@@ -91,6 +94,9 @@ namespace ShopApplication.UI
             services.AddScoped<IProductService, ProductManager>(); // Business Layer baðlantýsý
             services.AddScoped<ICategoryService, CategoryManager>();
 
+
+            // EmailConfirm için SendGrid konfigürasyonu
+            //services.AddTransient<IEmailSender, EmailSender>();
 
 
             services.AddMvc();

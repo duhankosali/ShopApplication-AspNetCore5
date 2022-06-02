@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopApplication.UI.Controllers
 {
+    [AutoValidateAntiforgeryToken]
     public class AccountController : Controller
     {
         // Dependency Injection
@@ -46,7 +47,14 @@ namespace ShopApplication.UI.Controllers
                 // email tokeni oluştur
                 // kullanıcı emaile gönder
 
-                return RedirectToAction("Account", "Login");
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user); // Kullanıcı oluştururken otomatik oluşacak bir token üretiyoruz.
+                var callbackUrl = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userId = user.Id,
+                    token = code
+                }); // Aşağıdaki ConfirmEmail methoduna yönlendiriyoruz.    
+
+                return RedirectToAction("Login", "Account");
             }
 
             ModelState.AddModelError("", "Bilinmeyen bir hata oluştu. Lütfen tekrar deneyiniz.");
@@ -82,6 +90,12 @@ namespace ShopApplication.UI.Controllers
                 return View(model); // Tekrar aynı sayfa açılır.
             }
 
+            if (!await _userManager.IsEmailConfirmedAsync(user)) // Eğer onaylı değilse (false döndürüyorsa)
+            {
+                ModelState.AddModelError("", "Lütfen hesabınızı Email üzerinden doğrulayınız.");
+                return View(model);
+            }
+
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
             if (result.Succeeded) // kullanıcı başarılı şekilde giriş yaptıysa.
@@ -99,6 +113,30 @@ namespace ShopApplication.UI.Controllers
             await _signInManager.SignOutAsync();
 
             return Redirect("~/");
+        }
+
+
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)  
+        {
+            if (userId == null || token == null)
+            {
+                TempData["message"] = "Geçersiz token.";
+                return View();
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                var result = await _userManager.ConfirmEmailAsync(user, token);
+                if (result.Succeeded)
+                {
+                    TempData["message"] = "Hesabınız onaylandı";
+                    return View();
+                }
+            }
+
+            TempData["message"] = "Hesabınız onaylanmadı.";
+            return View();
         }
     }
 }

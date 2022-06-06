@@ -90,11 +90,11 @@ namespace ShopApplication.UI.Controllers
                 return View(model); // Tekrar aynı sayfa açılır.
             }
 
-            if (!await _userManager.IsEmailConfirmedAsync(user)) // Eğer onaylı değilse (false döndürüyorsa)
-            {
-                ModelState.AddModelError("", "Lütfen hesabınızı Email üzerinden doğrulayınız.");
-                return View(model);
-            }
+            //if (!await _userManager.IsEmailConfirmedAsync(user)) // Eğer onaylı değilse (false döndürüyorsa)
+            //{
+            //    ModelState.AddModelError("", "Lütfen hesabınızı Email üzerinden doğrulayınız.");
+            //    return View(model);
+            //}
 
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
@@ -115,7 +115,13 @@ namespace ShopApplication.UI.Controllers
             return Redirect("~/");
         }
 
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
+
+        [HttpPost]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)  
         {
             if (userId == null || token == null)

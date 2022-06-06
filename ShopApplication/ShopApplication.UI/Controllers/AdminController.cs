@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ShopApplication.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         // Dependency Injection

@@ -63,7 +63,7 @@ namespace ShopApplication.UI
                 // options.User.AllowedUserNameCharacters = "";
                 options.User.RequireUniqueEmail = true; // ayný mail adresiyle üyeliði engeller.
 
-                options.SignIn.RequireConfirmedEmail = true; // Kullanýcýnýn mail adresinden onay iþlemi yapmasý gerekir.
+                options.SignIn.RequireConfirmedEmail = false; // Kullanýcýnýn mail adresinden onay iþlemi yapmasý gerekir.
                 options.SignIn.RequireConfirmedPhoneNumber = false; // Telefon onayý gerekmiyor. (Çünkü false)
             });
 
@@ -105,7 +105,7 @@ namespace ShopApplication.UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager) // user ve role manager eklemesi.
         {
             if (env.IsDevelopment())
             {
@@ -128,6 +128,8 @@ namespace ShopApplication.UI
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            SeedIdentity.Seed(userManager, roleManager, Configuration).Wait(); // Otomatik bir admin kullanýcýsý oluþuyor. (adminuser@naturalshop.com)
 
             app.UseEndpoints(endpoints =>
             {

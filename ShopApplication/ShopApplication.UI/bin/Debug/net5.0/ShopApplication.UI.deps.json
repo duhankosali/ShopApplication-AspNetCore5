@@ -34,6 +34,7 @@
       "ShopApplication.UI/1.0.0": {
         "dependencies": {
           "CKEditor": "3.6.4",
+          "Castle.Core": "5.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.16",
           "Microsoft.EntityFrameworkCore.Design": "5.0.16",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
@@ -183,7 +184,7 @@
           "System.Data": "4.0.0.0",
           "System.Diagnostics.Contracts": "5.0.0.0",
           "System.Diagnostics.Debug.Reference": "5.0.0.0",
-          "System.Diagnostics.EventLog": "5.0.0.0",
+          "System.Diagnostics.EventLog.Reference": "5.0.0.0",
           "System.Diagnostics.FileVersionInfo": "5.0.0.0",
           "System.Diagnostics.Process": "5.0.0.0",
           "System.Diagnostics.StackTrace": "5.0.0.0",
@@ -321,6 +322,20 @@
         },
         "compile": {
           "ShopApplication.UI.dll": {}
+        }
+      },
+      "Castle.Core/5.0.0": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Castle.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Castle.Core.dll": {}
         }
       },
       "CKEditor/3.6.4": {},
@@ -1380,6 +1395,13 @@
         },
         "compile": {
           "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
+        }
+      },
+      "System.Diagnostics.EventLog/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "Microsoft.Win32.Registry": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
         }
       },
       "System.Diagnostics.Tools/4.3.0": {
@@ -2769,7 +2791,7 @@
         },
         "compileOnly": true
       },
-      "System.Diagnostics.EventLog/5.0.0.0": {
+      "System.Diagnostics.EventLog.Reference/5.0.0.0": {
         "compile": {
           "System.Diagnostics.EventLog.dll": {}
         },
@@ -3569,6 +3591,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Castle.Core/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-edc8jjyXqzzy8jFdhs36FZdwmlDDTgqPb2Zy1Q5F/f2uAc88bu/VS/0Tpvgupmpl9zJOvOo5ZizVANb0ltN1NQ==",
+      "path": "castle.core/5.0.0",
+      "hashPath": "castle.core.5.0.0.nupkg.sha512"
+    },
     "CKEditor/3.6.4": {
       "type": "package",
       "serviceable": true,
@@ -4086,6 +4115,13 @@
       "sha512": "sha512-uXQEYqav2V3zP6OwkOKtLv+qIi6z3m1hsGyKwXX7ZA7htT4shoVccGxnJ9kVRFPNAsi1ArZTq2oh7WOto6GbkQ==",
       "path": "system.diagnostics.diagnosticsource/5.0.1",
       "hashPath": "system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iDoKGQcRwX0qwY+eAEkaJGae0d/lHlxtslO+t8pJWAUxlvY3tqLtVOPnW2UU4cFjP0Y/L1QBqhkZfSyGqVMR2w==",
+      "path": "system.diagnostics.eventlog/4.7.0",
+      "hashPath": "system.diagnostics.eventlog.4.7.0.nupkg.sha512"
     },
     "System.Diagnostics.Tools/4.3.0": {
       "type": "package",
@@ -5212,7 +5248,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Diagnostics.EventLog/5.0.0.0": {
+    "System.Diagnostics.EventLog.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

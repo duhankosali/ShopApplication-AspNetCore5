@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ShopApplication.Business.Abstract;
 using ShopApplication.UI.Identity;
 using ShopApplication.UI.Models;
 using System.Threading.Tasks;
@@ -12,11 +13,13 @@ namespace ShopApplication.UI.Controllers
         // Dependency Injection
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private ICartService _cartService;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ICartService cartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _cartService = cartService;
         }
 
 
@@ -47,12 +50,15 @@ namespace ShopApplication.UI.Controllers
                 // email tokeni oluştur
                 // kullanıcı emaile gönder
 
+                // create cart object
+                _cartService.InitializeCart(user.Id); // Her yeni üyelik açıldığında, Cart tablosuna eklenir.
+
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user); // Kullanıcı oluştururken otomatik oluşacak bir token üretiyoruz.
                 var callbackUrl = Url.Action("ConfirmEmail", "Account", new
                 {
                     userId = user.Id,
                     token = code
-                }); // Aşağıdaki ConfirmEmail methoduna yönlendiriyoruz.    
+                }); 
 
                 return RedirectToAction("Login", "Account");
             }
@@ -136,6 +142,8 @@ namespace ShopApplication.UI.Controllers
                 var result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded)
                 {
+                    
+
                     TempData["message"] = "Hesabınız onaylandı";
                     return View();
                 }

@@ -90,9 +90,11 @@ namespace ShopApplication.UI
 
             services.AddScoped<IProductDal, EfCoreProductDal>(); // DataAccess Layer baðlantýsý
             services.AddScoped<ICategoryDal, EfCoreCategoryDal>();
+            services.AddScoped<ICartDal, EfCoreCartDal>();
 
             services.AddScoped<IProductService, ProductManager>(); // Business Layer baðlantýsý
             services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICartService, CartManager>();
 
 
             // EmailConfirm için SendGrid konfigürasyonu
@@ -138,6 +140,12 @@ namespace ShopApplication.UI
                 pattern: "admin/products",
                 defaults: new { controller = "Admin", action = "ProductList" }
               );
+
+                endpoints.MapControllerRoute(
+                    name: "cart",
+                    pattern: "cart",
+                    defaults: new { controller = "Cart", action = "Index" }
+                );
 
                 endpoints.MapControllerRoute(
                     name: "adminProducts",

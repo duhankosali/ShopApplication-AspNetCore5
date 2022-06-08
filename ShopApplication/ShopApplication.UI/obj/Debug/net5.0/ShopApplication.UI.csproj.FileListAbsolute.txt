@@ -507,3 +507,4 @@ C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\Shop
 C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
 C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Account\AccessDenied.cshtml.g.cs
+C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs

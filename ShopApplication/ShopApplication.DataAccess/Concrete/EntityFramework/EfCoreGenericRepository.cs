@@ -67,7 +67,7 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
             }
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity) // Update'i override edebilmek için virtual method yaptık.
         {
             //throw new NotImplementedException();
 

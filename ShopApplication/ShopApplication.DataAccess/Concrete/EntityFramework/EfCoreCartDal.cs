@@ -11,6 +11,17 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
 {
     public class EfCoreCartDal : EfCoreGenericRepository<Cart, ShopContext>, ICartDal
     {
+        public override void Update (Cart entity) // override method
+        {
+            //base.Update (Entity);
+
+            using (var context = new ShopContext())
+            {
+                context.Carts.Update(entity);
+                context.SaveChanges();
+            }
+        }
+
         public Cart GetByUserId(string userId)
         {
             //throw new NotImplementedException();
@@ -22,6 +33,17 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
                             .Include(i => i.CartItems)
                             .ThenInclude(i => i.Product)
                             .FirstOrDefault(i => i.UserId == userId);
+            }
+        }
+
+        public void DeleteFromCart(int cartId, int productId)
+        {
+            //throw new NotImplementedException();
+
+            using (var context = new ShopContext())
+            {
+                var query = @"Delete from CartItem where CartId=@p0 And ProductId=@p1";
+                context.Database.ExecuteSqlRaw(query, cartId, productId); // p0 = cartId, p1 = productId
             }
         }
     }

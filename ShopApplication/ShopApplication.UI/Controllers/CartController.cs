@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ShopApplication.Business.Abstract;
 using ShopApplication.UI.Identity;
+using ShopApplication.UI.Models;
+using System.Linq;
 
 namespace ShopApplication.UI.Controllers
 {
@@ -23,17 +25,40 @@ namespace ShopApplication.UI.Controllers
         {
             string userId = _userManager.GetUserId(User); // ApplicationUser'ı kullanarak giriş yapmış olan kullanıcının ID verisini değişkene atadık.
 
-            var cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
+            var cart = _cartService.GetCartByUserId(userId);
 
-            System.Console.WriteLine(cart);
-
-            return View();
+            return View(new CartModel()
+            {
+                CartId = cart.Id,
+                CartItems = cart.CartItems.Select(i => new CartItemModel()
+                {
+                    CartItemId = i.Id,
+                    ProductId = i.Product.Id,
+                    Name = i.Product.Name,
+                    Price = (decimal)i.Product.Price,
+                    ImageUrl = i.Product.ImageUrl,
+                    Quantity = i.Quantity
+                }).ToList()
+            });
         }
 
         [HttpPost] // Ekleme işlemi olduğu için PostMethod
-        public IActionResult AddToCart()
+        public IActionResult AddToCart(int productId, int quantity)
         {
-            return View();
+            string userId = _userManager.GetUserId(User);
+
+            _cartService.AddToCart(userId, productId, quantity);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]  
+        public IActionResult DeleteFromCart(int productId)
+        {
+            string userId = _userManager.GetUserId(User);
+
+            _cartService.DeleteFromCart(userId, productId);
+            return RedirectToAction("Index");
         }
     }
 }

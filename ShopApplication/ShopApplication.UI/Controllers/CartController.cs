@@ -60,5 +60,30 @@ namespace ShopApplication.UI.Controllers
             _cartService.DeleteFromCart(userId, productId);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Checkout()
+        {
+            var userId = _userManager.GetUserId(User);
+            var cart = _cartService.GetCartByUserId(userId);
+
+            var orderModel = new OrderModel();
+
+            orderModel.CartModel = new CartModel()
+            {
+                CartId = cart.Id,
+                CartItems = cart.CartItems.Select(i => new CartItemModel()
+                {
+                    CartItemId = i.Id,
+                    ProductId = i.Product.Id,
+                    Name = i.Product.Name,
+                    Price = (decimal)i.Product.Price,
+                    ImageUrl = i.Product.ImageUrl,
+                    Quantity = i.Quantity
+                }).ToList()
+            };
+
+            return View(orderModel);
+        }
+
     }
 }

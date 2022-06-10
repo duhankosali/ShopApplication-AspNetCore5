@@ -148,6 +148,12 @@ namespace ShopApplication.UI
                 );
 
                 endpoints.MapControllerRoute(
+                    name: "checkout",
+                    pattern: "checkout",
+                    defaults: new { controller = "Cart", action = "Checkout" }
+                );
+
+                endpoints.MapControllerRoute(
                     name: "adminProducts",
                     pattern: "admin/products/{id?}",
                     defaults: new { controller = "Admin", action = "EditProduct" }

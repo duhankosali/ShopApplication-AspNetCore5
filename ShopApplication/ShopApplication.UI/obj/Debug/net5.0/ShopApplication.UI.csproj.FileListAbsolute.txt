@@ -509,3 +509,6 @@ C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\Shop
 C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Account\AccessDenied.cshtml.g.cs
 C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Cart\Checkout.cshtml.g.cs
+C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\bin\Debug\net5.0\IyzipayCore.dll
+C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Cart\Success.cshtml.g.cs
+C:\Users\duhan\Documents\GitHub\ShopApplication-AspNetCore5\ShopApplication\ShopApplication.UI\obj\Debug\net5.0\Razor\Views\Cart\GetOrders.cshtml.g.cs

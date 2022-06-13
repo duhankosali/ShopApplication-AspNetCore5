@@ -39,11 +39,22 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
         public void DeleteFromCart(int cartId, int productId)
         {
             //throw new NotImplementedException();
-
+            // Sql Sorgularını yazalım
             using (var context = new ShopContext())
             {
                 var query = @"Delete from CartItem where CartId=@p0 And ProductId=@p1";
                 context.Database.ExecuteSqlRaw(query, cartId, productId); // p0 = cartId, p1 = productId
+            }
+        }
+
+        public void ClearCart(int cartId)
+        {
+            //throw new NotImplementedException();
+            // Sql Sorgularını yazalım
+            using (var context = new ShopContext())
+            {
+                var query = @"Delete from CartItem where CartId=@p0";
+                context.Database.ExecuteSqlRaw(query, cartId); // p0 = cartId
             }
         }
     }

@@ -2,7 +2,7 @@
 
 namespace ShopApplication.UI.Models
 {
-    public class OrderModel
+    public class OrderModel // Sipariş kayıt için model
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

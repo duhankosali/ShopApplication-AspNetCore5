@@ -45,6 +45,12 @@ namespace ShopApplication.Business.Concrete
             }
         }
 
+        public void ClearCart(int cartId)
+        {
+            //throw new NotImplementedException();
+            _cartDal.ClearCart(cartId);
+        }
+
         public void DeleteFromCart(string userId, int productId)
         {
             //throw new NotImplementedException();

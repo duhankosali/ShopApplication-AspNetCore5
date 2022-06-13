@@ -10,6 +10,12 @@ namespace ShopApplication.Entities
     {
         //stripe
         //IYZICO
+
+        public Order()
+        {
+            OrderItems = new List<OrderItem>();
+        }
+
         public int Id { get; set; }
         public string OrderNumber { get; set; }
         public DateTime OrderDate { get; set; }

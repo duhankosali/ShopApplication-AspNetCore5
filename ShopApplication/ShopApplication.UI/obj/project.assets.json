@@ -8707,11 +8707,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.UI\\ShopApplication.UI.csproj",
+      "projectUniqueName": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.UI\\ShopApplication.UI.csproj",
       "projectName": "ShopApplication.UI",
-      "projectPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.UI\\ShopApplication.UI.csproj",
+      "projectPath": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.UI\\ShopApplication.UI.csproj",
       "packagesPath": "C:\\Users\\duhan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.UI\\obj\\",
+      "outputPath": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\duhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8728,8 +8728,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj": {
-              "projectPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj"
+            "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj": {
+              "projectPath": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj"
             }
           }
         }

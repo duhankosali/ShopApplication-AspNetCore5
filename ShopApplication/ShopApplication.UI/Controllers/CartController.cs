@@ -205,33 +205,33 @@ namespace ShopApplication.UI.Controllers
 
             Buyer buyer = new Buyer();
             buyer.Id = "BY789";
-            buyer.Name = "John";
-            buyer.Surname = "Doe";
-            buyer.GsmNumber = "+905350000000";
-            buyer.Email = "email@email.com";
+            buyer.Name = model.FirstName;
+            buyer.Surname = model.LastName;
+            buyer.GsmNumber = model.Phone;
+            buyer.Email = model.Email;
             buyer.IdentityNumber = "74300864791";
             buyer.LastLoginDate = "2015-10-05 12:43:35";
             buyer.RegistrationDate = "2013-04-21 15:12:09";
-            buyer.RegistrationAddress = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            buyer.RegistrationAddress = model.Address;
             buyer.Ip = "85.34.78.112";
-            buyer.City = "Istanbul";
+            buyer.City = model.City;
             buyer.Country = "Turkey";
             buyer.ZipCode = "34732";
             request.Buyer = buyer;
 
             Address shippingAddress = new Address();
-            shippingAddress.ContactName = "Jane Doe";
-            shippingAddress.City = "Istanbul";
+            shippingAddress.ContactName = model.FirstName+" "+model.LastName;
+            shippingAddress.City = model.City;
             shippingAddress.Country = "Turkey";
-            shippingAddress.Description = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            shippingAddress.Description = model.Address;
             shippingAddress.ZipCode = "34742";
             request.ShippingAddress = shippingAddress;
 
             Address billingAddress = new Address();
-            billingAddress.ContactName = "Jane Doe";
-            billingAddress.City = "Istanbul";
+            billingAddress.ContactName = model.FirstName + " " + model.LastName;
+            billingAddress.City = model.City;
             billingAddress.Country = "Turkey";
-            billingAddress.Description = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            billingAddress.Description = model.Address;
             billingAddress.ZipCode = "34742";
             request.BillingAddress = billingAddress;
 
@@ -243,9 +243,10 @@ namespace ShopApplication.UI.Controllers
                 basketItem = new BasketItem();
                 basketItem.Id = item.ProductId.ToString();
                 basketItem.Name = item.Name;
-                basketItem.Category1 = "Phone";
+                basketItem.Category1 = "Natural Food";
                 basketItem.ItemType = BasketItemType.PHYSICAL.ToString();
-                basketItem.Price = item.Price.ToString().Split(".")[0];
+                basketItem.Price = (item.Price * item.Quantity).ToString().Split(".")[0];
+                
 
                 basketItems.Add(basketItem);
             }

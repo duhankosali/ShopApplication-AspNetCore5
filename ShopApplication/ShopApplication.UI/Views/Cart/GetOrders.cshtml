@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>GetOrders</h1>
+<h1>Siparişler</h1>
 
 @foreach (var order in Model)
 {
@@ -49,7 +49,7 @@
                 <td>@order.Address</td>
             </tr>
             <tr>
-                <td colspan="2">Phone:</td>
+                <td colspan="2">Telefon Numarası:</td>
                 <td>@order.Phone</td>
             </tr>
             <tr>
@@ -57,11 +57,11 @@
                 <td>@order.Email</td>
             </tr>
             <tr>
-                <td colspan="2">Payment Status:</td>
+                <td colspan="2">Ödeme Durumu:</td>
                 <td>@order.PaymentTypes</td>
             </tr>
             <tr>
-                <td colspan="2">Order Status:</td>
+                <td colspan="2">Sipariş Durumu:</td>
                 <td>@order.OrderState</td>
             </tr>
         </tfoot>

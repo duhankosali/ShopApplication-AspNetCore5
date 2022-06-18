@@ -49,7 +49,7 @@ namespace ShopApplication.UI.Controllers
                     Name = model.Name,
                     Price = model.Price,
                     Description = model.Description,
-                    ImageUrl = model.ImageUrl
+                    //ImageUrl = model.ImageUrl
                 };
 
                 if (_productService.Create(entity))

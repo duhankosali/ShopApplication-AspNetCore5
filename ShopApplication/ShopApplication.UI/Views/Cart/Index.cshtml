@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Shopping Cart</h1>
+<h1>Alışveriş Sepetim</h1>
 
 <div class="row mt-5">
     <div class="col-md-8">
@@ -21,10 +21,10 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                    <th>Adet</th>
+                    <th>Toplam</th>
                     <th></th>
                 </tr>
             </thead>
@@ -58,31 +58,31 @@
     </div>
      <div class="col-md-4">
         <div class="text-left">
-            <h4>Cart Summary</h4>
+            <h4>Sepet Özeti</h4>
         </div>
 
         <table class="table">
             <tbody>
                 <tr>
-                    <th>Cart Total</th>
-                    <td>@Model.TotalPrice().ToString("c")</td> <!-- "c" -> parasal ifadeler için kullanılan c# terimi -->
+                    <th>Toplam Tutar</th>
+                    <td>@Model.TotalPrice().ToString() TL</td> <!-- "c" -> parasal ifadeler için kullanılan c# terimi -->
                 </tr>
                 <tr>
-                    <th>Shipping</th>
-                    <td>Free</td>
+                    <th>Kargo Ücreti</th>
+                    <td>Ücretsiz</td>
                 </tr>
                 <tr>
-                    <th>Order Total</th>
-                    <td>@Model.TotalPrice().ToString("c")</td>
+                    <th>Sipariş Tutarı</th>
+                    <td>@Model.TotalPrice().ToString() TL</td>
                 </tr>
             </tbody>
         </table>
         <div class="text-center">
             <a href="/" class="btn btn-success">
-                <i class="fa fa-shopping-cart"></i> Continue Shopping
+                <i class="fa fa-shopping-cart"></i> Alışverişe devam et!
             </a>
             <a href="/checkout" class="btn btn-success">
-                Checkout <i class="fa fa-arrow-circle-right fa-fw"></i>
+                Sepeti Onayla <i class="fa fa-arrow-circle-right fa-fw"></i>
             </a>
         </div>
     </div>

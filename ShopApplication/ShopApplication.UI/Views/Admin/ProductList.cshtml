@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Admin Products</h1>
+<h1>Admin Ürün Paneli</h1>
 <hr />
 
 @if (Model.Products.Count() > 0)
@@ -14,9 +14,9 @@
         <thead>
             <tr>
                 <td style="width:30px;">Id</td>
-                <td style="width:100px;">Image</td>
+                <td style="width:100px;">Fotoğraf</td>
                 <td>Name</td>
-                <td style="width:12px;">Price</td>
+                <td style="width:12px;">Fiyat</td>
                 <td style="width:150px;"></td>
             </tr>
         </thead>
@@ -31,11 +31,11 @@
                     <td>@item.Name</td>
                     <td>@item.Price</td>
                     <td>
-                        <a class="btn btn-primary btn-sm mr-2" href="/admin/products/@item.Id">Edit</a>
+                        <a class="btn btn-primary btn-sm mr-2" href="/admin/products/@item.Id">Düzenle</a>
 
                          <form action="/admin/DeleteProduct" method="post" style="display:inline;">
                             <input type="hidden" name="productId" value="@item.Id" />
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                         </form>
 
                     </td>
@@ -49,7 +49,7 @@
 else
 {
     <div class="alert alert-warning">
-        <h4>No Products</h4>
+        <h4>Henüz ürün bulunmamaktadır</h4>
     </div>
 }
 

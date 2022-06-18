@@ -52,8 +52,8 @@ namespace ShopApplication.UI
                 // Ek olarak istediðimiz özellikleri buradan belirtiyoruz.
 
                 // password
-                options.Password.RequireDigit = true; // Kullanýcý parolasýnda sayý kullanma þartý.
-                options.Password.RequireUppercase = true; // parolada büyük harf kullanma þartý. 
+                options.Password.RequireDigit = false; // Kullanýcý parolasýnda sayý kullanma þartý.
+                options.Password.RequireUppercase = false; // parolada büyük harf kullanma þartý. 
                 options.Password.RequiredLength = 6; // parola minimum 6 karakterden oluþmalý.
 
                 options.Lockout.MaxFailedAccessAttempts = 5; // Kullanýcýnýn parolayý yanlýþ girmesi için 5 hakký var.

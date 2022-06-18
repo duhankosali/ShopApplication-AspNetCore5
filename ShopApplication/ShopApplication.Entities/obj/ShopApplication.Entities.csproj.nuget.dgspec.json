@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {}
+    "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {
+    "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj",
         "projectName": "ShopApplication.Entities",
-        "projectPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj",
+        "projectPath": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\ShopApplication.Entities.csproj",
         "packagesPath": "C:\\Users\\duhan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Entities\\obj\\",
+        "outputPath": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\duhan\\AppData\\Roaming\\NuGet\\NuGet.Config",

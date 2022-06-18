@@ -13,7 +13,7 @@ namespace ShopApplication.DataAccess.Concrete.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // overide ile oluşturduk.
         {
             //base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("server=DESKTOP-U8RG37D\\SQLSERVER; database=CoreProject; integrated security=true");
+            optionsBuilder.UseSqlServer("Data Source=SQL8002.site4now.net,1433;Initial Catalog=db_a8896e_shopappdatabase;User Id=db_a8896e_shopappdatabase_admin;Password=shopapp123");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

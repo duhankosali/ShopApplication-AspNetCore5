@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6PbJrjtrFYzM9yggfCBZ8oaYZl4JuFea31CaAP+oU5IfEQzdv1IC0T+OS/ny+WZxmNIWzIPk1L+lYY3ga8PSbA==",
+  "dgSpecHash": "i9aGOOk5dS6+NucFWxn3Ua3r7+invFH8aVLG1s94K7mr9+taLdNPYNRAHl9svq1fjmnOgbf/Zf2yT8C2V3aY+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj",
+  "projectFilePath": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.Business\\ShopApplication.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duhan\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\duhan\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

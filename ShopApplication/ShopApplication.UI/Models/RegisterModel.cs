@@ -11,6 +11,7 @@ namespace ShopApplication.UI.Models
         public string Username { get; set; }
 
         [Required]
+        [MinLength(6, ErrorMessage ="Şifreniz en az 6 karakter olmalıdır.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

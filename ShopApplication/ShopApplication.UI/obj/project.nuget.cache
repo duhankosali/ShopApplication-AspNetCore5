@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BI/tZZXuVFrTkszrgef+5nUfBeKegwAlVyikI47J09ia0gxPjtNmXPvLNiMpR0C5gs3GRcXkHyyTteP7TU/RUQ==",
+  "dgSpecHash": "TaUoVOS8/AGMdDwpKYC4FWdMcgt/F/PpB2H/v3ayc49tXeMG7G3vAghOtzn6ttvcoCFKp19GVwlLhXU2KdEa7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\duhan\\Documents\\GitHub\\ShopApplication-AspNetCore5\\ShopApplication\\ShopApplication.UI\\ShopApplication.UI.csproj",
+  "projectFilePath": "C:\\Users\\duhan\\Desktop\\ShopApplication-AspNetCore5-main\\ShopApplication\\ShopApplication.UI\\ShopApplication.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duhan\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
     "C:\\Users\\duhan\\.nuget\\packages\\ckeditor\\3.6.4\\ckeditor.3.6.4.nupkg.sha512",

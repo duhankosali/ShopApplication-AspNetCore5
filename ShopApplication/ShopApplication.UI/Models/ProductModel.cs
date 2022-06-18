@@ -11,7 +11,7 @@ namespace ShopApplication.UI.Models
         //[Required] // Nesneye "Name" verilmesini zorunlu kıldık.
         //[StringLength(60, MinimumLength =10, ErrorMessage ="Ürün Adı 10-60 karakter aralığında olmalıdır.")]
         public string Name { get; set; }
-        [Required]
+        //[Required]
         public string ImageUrl { get; set; }
         [Required]
         [StringLength(150, MinimumLength = 20, ErrorMessage = "Ürün açıklaması 20-150 karakter aralığında olmalıdır.")]

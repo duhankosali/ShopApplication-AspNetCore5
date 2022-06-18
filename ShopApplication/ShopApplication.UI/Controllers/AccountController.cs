@@ -63,9 +63,14 @@ namespace ShopApplication.UI.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            ModelState.AddModelError("", "Bilinmeyen bir hata oluştu. Lütfen tekrar deneyiniz.");
+            string hata = result.ToString();
+            System.Console.WriteLine(hata);
 
-            return View();
+            ModelState.AddModelError("", "Hata oluştu. Lütfen tekrar deneyiniz.");
+            ModelState.AddModelError("", hata);
+            ModelState.AddModelError("", "Not: Lütfen şifrenizi oluştururken büyük harf, rakam ve sembol kullanınız.");
+            ModelState.AddModelError("", "Örnek Şifre: 'Password*123'");
+            return View(model);
         }
 
 
@@ -109,7 +114,8 @@ namespace ShopApplication.UI.Controllers
                 return Redirect(model.ReturnUrl?? "~/"); // Eğer ReturnUrl null ise kullanıcı anasayfaya gönderilir.
             }
 
-            return View();
+            ModelState.AddModelError("", "Email veya şifre yanlış! Lütfen tekrar deneyiniz.");
+            return View(model);
         }
 
         
